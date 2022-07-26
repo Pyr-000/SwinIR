@@ -1,4 +1,23 @@
-# SwinIR: Image Restoration Using Swin Transformer
+This repository contains an additional minimal processing script, `process.py`, adapted from the original `main_test_swinir.py`. Unlike the included `predict.py`, it does not utilise cog.
+
+By default, this script is set up to use the large x4 Real-World Image Super-Resolution model of SwinIR (real_sr, SwinIR-L_x4_GAN)
+
+Usage:
+
+To process an image, specify the source image path with `-i`, as well as the target image path with `-o`:
+```bash
+python process.py -i testsets/RealSRSet+5images/chip.png -o results/chip_sr.png
+```
+To process an entire folder, specify the source folder path containing your input images with `-i`, as well as a target folder path for outputs with `-o`:
+```bash
+python process.py -i testsets/RealSRSet+5images -o results/RealSrSet
+```
+The output folder will be created if it is not already present. Each processed image will have the same file name as its respective source image.
+
+The folder processing mode will skip images which already have a file of the same name in the output folder, allowing you to simply re-run the same command whenever more images are added to the source directory. This can be useful in image generation pipelines, where a source folder of generated images, as well as a target folder of upscaled versions could be automatically maintained.
+
+
+# Original readme (unmodified): <br> SwinIR: Image Restoration Using Swin Transformer
 [Jingyun Liang](https://jingyunliang.github.io), [Jiezhang Cao](https://www.jiezhangcao.com/), [Guolei Sun](https://vision.ee.ethz.ch/people-details.MjYzMjMw.TGlzdC8zMjg5LC0xOTcxNDY1MTc4.html), [Kai Zhang](https://cszn.github.io/), [Luc Van Gool](https://scholar.google.com/citations?user=TwMib_QAAAAJ&hl=en), [Radu Timofte](http://people.ee.ethz.ch/~timofter/)
 
 Computer Vision Lab, ETH Zurich
